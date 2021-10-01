@@ -1,0 +1,3 @@
+setup_ssh() {
+  ln -si $(pwd)/ssh/config ~/.ssh/config
+}
