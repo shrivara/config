@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Source config setup files
+source atom/update
+source zsh/update
+
+# Run config setup files
+echo "Updating Atom config files..."
+update_atom
+
+echo "Updating Zsh config files..."
+update_zsh

@@ -1,0 +1,3 @@
+setup_zsh() {
+  ln -si $(pwd)/zsh/.zshrc ~/.zshrc
+}
