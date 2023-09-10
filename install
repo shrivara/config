@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+install_ohmyzsh() {
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
+
+symlink_zsh_config() {
+  rm ~/.zshrc || true
+  ln -s $(pwd)/.zshrc ~/.zshrc
+}
+
+install() {
+  # ohmyzsh
+  if [[ ! $ZSH ]]; then install_ohmyzsh; fi
+  symlink_zsh_config
+
+}
+
+install

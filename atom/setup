@@ -1,4 +1,0 @@
-setup_atom() {
-  ln -si $(pwd)/atom/.config.cson ~/.atom/config.cson
-  apm install --packages-file $(pwd)/atom/package.list
-}
