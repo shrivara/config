@@ -10,11 +10,16 @@ symlink_zsh_config() {
   ln -s $(pwd)/.zshrc ~/.zshrc
 }
 
+symlink_vscode_config() {
+  rm $HOME/Library/Application\ Support/Code/User/settings.json
+  ln -s $(pwd)/vscode.json $HOME/Library/Application\ Support/Code/User/settings.json
+}
+
 install() {
   # ohmyzsh
   if [[ ! $ZSH ]]; then install_ohmyzsh; fi
   symlink_zsh_config
-
+  symlink_vscode_config
 }
 
 install
