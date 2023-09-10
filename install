@@ -11,12 +11,9 @@ symlink() {
 }
 
 install() {
-  # ohmyzsh
-  # if [[ ! $ZSH ]]; then install_ohmyzsh; fi
-  # symlink_zsh_config
-  # symlink_vscode_config
-  # symlink_github_config
+  if [[ ! $ZSH ]]; then install_ohmyzsh; fi
 
+  # Config
   symlink .zshrc ~/.zshrc
   symlink vscode.json "$HOME/Library/Application Support/Code/User/settings.json"
   symlink .gitconfig ~/.gitconfig
