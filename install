@@ -5,21 +5,22 @@ install_ohmyzsh() {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
-symlink_zsh_config() {
-  rm ~/.zshrc || true
-  ln -s $(pwd)/.zshrc ~/.zshrc
-}
-
-symlink_vscode_config() {
-  rm $HOME/Library/Application\ Support/Code/User/settings.json
-  ln -s $(pwd)/vscode.json $HOME/Library/Application\ Support/Code/User/settings.json
+symlink() {
+  rm "$2" || true
+  ln -s "$(pwd)/$1" "$2"
 }
 
 install() {
   # ohmyzsh
-  if [[ ! $ZSH ]]; then install_ohmyzsh; fi
-  symlink_zsh_config
-  symlink_vscode_config
+  # if [[ ! $ZSH ]]; then install_ohmyzsh; fi
+  # symlink_zsh_config
+  # symlink_vscode_config
+  # symlink_github_config
+
+  symlink .zshrc ~/.zshrc
+  symlink vscode.json "$HOME/Library/Application Support/Code/User/settings.json"
+  symlink .gitconfig ~/.gitconfig
+
 }
 
 install
