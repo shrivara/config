@@ -1,22 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-install_ohmyzsh() {
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-}
-
 symlink() {
   rm "$2" || true
   ln -s "$(pwd)/$1" "$2"
 }
 
 install() {
-  if [[ ! $ZSH ]]; then install_ohmyzsh; fi
-
-  # Config
-  symlink .zshrc ~/.zshrc
+  symlink zshrc ~/.zshrc
   symlink vscode.json "$HOME/Library/Application Support/Code/User/settings.json"
-  symlink .gitconfig ~/.gitconfig
+  symlink gitconfig ~/.gitconfig
 
 }
 
