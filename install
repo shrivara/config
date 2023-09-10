@@ -3,7 +3,7 @@ set -euo pipefail
 
 symlink() {
   rm "$2" || true
-  ln -s "$(pwd)/$1" "$2"
+  ln -s "$(pwd)/configs/$1" "$2"
 }
 
 install() {
